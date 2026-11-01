@@ -1,0 +1,90 @@
+# Azure Cloud-Native .NET Microservices Platform
+
+An end-to-end cloud-native engineering project focused on designing, deploying, securing, and operating .NET microservices on Microsoft Azure.
+
+The goal is to build a reproducible platform that demonstrates practical skills in cloud infrastructure, Kubernetes, Infrastructure as Code, distributed systems, resilience, observability, and CI/CD.
+
+> **Project status:** Initial setup and architecture planning.
+
+## Objectives
+
+Build and operate a cloud-native .NET microservices application while developing practical experience in:
+
+- Microsoft Azure infrastructure and services
+- Azure Kubernetes Service (AKS)
+- Terraform and Infrastructure as Code
+- Containerization and Kubernetes operations
+- Distributed systems and microservice communication
+- Application and infrastructure resilience
+- OpenTelemetry-based observability
+- Identity, access management, and secrets management
+- CI/CD automation with GitHub Actions
+- Troubleshooting, performance, and operational practices
+
+## Application
+
+The project uses Microsoft's [eShop](https://github.com/ibraheemcisse/eShop) as its application foundation.
+
+The application will serve as a practical workload for exploring cloud-native architecture and platform engineering rather than spending project time building a business application from scratch.
+
+## Planned Engineering Areas
+
+| Area | Planned work |
+|---|---|
+| Application | Understand and prepare the .NET microservices application |
+| Infrastructure | Design and provision Azure resources with Terraform |
+| Containers | Build and manage container images |
+| Kubernetes | Deploy and operate workloads on AKS |
+| Networking | Explore ingress, service communication, and network security |
+| Security | Apply least privilege, identity, and secrets management |
+| Resilience | Implement and test failure-handling strategies |
+| Observability | Collect and investigate logs, metrics, and traces |
+| CI/CD | Automate build, test, and deployment workflows |
+| Operations | Test failures, troubleshoot incidents, and document recovery |
+
+These are planned capabilities, not claims of completed implementation.
+
+## Repository Structure
+
+The repository will evolve as the project progresses.
+
+```text
+azure-cloud-native-dotnet-microservices/
+├── docs/
+│   ├── architecture/
+│   ├── decisions/
+│   └── operations/
+├── infrastructure/
+│   └── terraform/
+├── kubernetes/
+├── scripts/
+├── .github/
+│   └── workflows/
+└── README.md
+```
+
+## Engineering Principles
+
+- Infrastructure should be reproducible.
+- Security should be designed in, not added at the end.
+- Reliability should be tested through failure scenarios.
+- Observability should help explain system behaviour.
+- Architectural decisions should be documented.
+- Costs and resource lifecycle should be considered throughout.
+- Every major implementation step should be verifiable.
+
+## Learning and Delivery Approach
+
+The project will be developed incrementally.
+
+Each major phase should include:
+
+1. A documented design.
+2. An implementation.
+3. Validation and testing.
+4. Operational considerations.
+5. Lessons learned and supporting documentation.
+
+## Disclaimer
+
+This repository is an independent educational and portfolio project. Microsoft eShop is used as the application foundation; its original authors and maintainers retain ownership of their work.
