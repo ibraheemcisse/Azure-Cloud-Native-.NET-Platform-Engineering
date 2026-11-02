@@ -1,0 +1,7 @@
+**/bin/
+**/obj/
+**/Pizzas.db
+**/*.db
+.git/
+.vs/
+.vscode/
