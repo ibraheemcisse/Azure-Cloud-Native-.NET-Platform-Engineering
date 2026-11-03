@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pizzastore
+  namespace: default
+  labels:
+    app: pizzastore
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pizzastore
+  template:
+    metadata:
+      labels:
+        app: pizzastore
+    spec:
+      initContainers:
+        - name: set-data-permissions
+          image: busybox:1.37
+          command:
+            - sh
+            - -c
+            - chown -R 1654:1654 /data
+          securityContext:
+            runAsUser: 0
+          volumeMounts:
+            - name: pizzastore-data
+              mountPath: /data
+
+      containers:
+        - name: pizzastore
+          image: ibraheempizzastoreacr.azurecr.io/pizzastore-api:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 8080
+              protocol: TCP
+
+          env:
+            - name: ConnectionStrings__Pizzas
+              value: "Data Source=/data/Pizzas.db"
+
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 1654
+            allowPrivilegeEscalation: false
+
+          volumeMounts:
+            - name: pizzastore-data
+              mountPath: /data
+
+      volumes:
+        - name: pizzastore-data
+          persistentVolumeClaim:
+            claimName: pizzastore-data
