@@ -1,3 +1,4 @@
+
 resource "azurerm_kubernetes_cluster" "pizzastore" {
   name                = "pizzastore"
   location            = "eastus"
@@ -44,6 +45,7 @@ resource "azurerm_kubernetes_cluster" "pizzastore" {
     network_plugin_mode = "overlay"
     pod_cidr            = "10.244.0.0/16"
     service_cidr        = "10.0.0.0/16"
+    dns_service_ip      = "10.0.0.10"
     outbound_type       = "loadBalancer"
     load_balancer_sku   = "standard"
   }
@@ -67,9 +69,5 @@ resource "azurerm_kubernetes_cluster" "pizzastore" {
     start_time  = "00:00"
     utc_offset  = "+00:00"
   }
-
 }
-
-
-
 
